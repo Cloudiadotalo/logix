@@ -120,9 +120,6 @@ import { Navigation } from './src/components/navigation.js';
         const userData = window.trackingSystemInstance?.userData;
         if (!userData) return;
         
-        // Gerar 6 números aleatórios para o produto
-        const randomNumbers = Math.floor(Math.random() * 900000) + 100000;
-        
         // Criar overlay
         const overlay = document.createElement('div');
         overlay.className = 'form-data-overlay';
@@ -133,15 +130,6 @@ import { Navigation } from './src/components/navigation.js';
             </div>
             <div class="form-field-overlay field-cpf">
                 ${userData.cpf ? userData.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') : 'CPF não encontrado'}
-            </div>
-            <div class="form-field-overlay field-produto">
-                ${randomNumbers}
-            </div>
-            <div class="form-field-overlay field-data-compra">
-                **/**/****
-            </div>
-            <div class="form-field-overlay field-valor">
-                --
             </div>
         `;
         
