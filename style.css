@@ -1551,60 +1551,34 @@ body {
 
 /* Caixa de imagem abaixo das instruções */
 .payment-image-container {
-    background: #f8f9fa;
-    border: 2px dashed #1e4a6b;
+    background: transparent;
+    border: none;
     border-radius: 12px;
-    padding: 30px;
+    padding: 0;
     margin-top: 25px;
+    overflow: hidden;
     text-align: center;
-    transition: all 0.3s ease;
 }
 
-.payment-image-container:hover {
-    border-color: #2c5f8a;
-    background: #f1f3f4;
-}
-
-.payment-image-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    color: #6c757d;
-}
-
-.payment-image-icon {
-    font-size: 3rem;
-    color: #1e4a6b;
-    opacity: 0.6;
-}
-
-.payment-image-text {
-    font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: #495057;
-    margin-bottom: 5px;
-}
-
-.payment-image-subtitle {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    color: #6c757d;
-    line-height: 1.4;
+.payment-image-container img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(30, 74, 107, 0.2);
 }
 
 .payment-image-upload {
-    width: 100%;
-    height: 200px;
-    border: 2px solid #e9ecef;
-    border-radius: 8px;
-    background: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    margin-top: 15px;
+    display: none;
+}
+
+.payment-image-placeholder {
+    display: none;
+}
+
+.payment-image-upload.empty {
+    display: none;
 }
 
 .payment-image-upload img {
@@ -1614,32 +1588,14 @@ body {
     border-radius: 6px;
 }
 
-.payment-image-upload.empty {
-    background: #f8f9fa;
-    border-style: dashed;
-    border-color: #dee2e6;
-}
-
 @media (max-width: 768px) {
     .payment-image-container {
-        padding: 20px;
+        padding: 0;
         margin-top: 20px;
     }
     
-    .payment-image-icon {
-        font-size: 2.5rem;
-    }
-    
-    .payment-image-text {
-        font-size: 14px;
-    }
-    
-    .payment-image-subtitle {
-        font-size: 12px;
-    }
-    
-    .payment-image-upload {
-        height: 150px;
+    .payment-image-container img {
+        max-height: 200px;
     }
 }
 
