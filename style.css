@@ -1564,9 +1564,10 @@ body {
 .payment-image-container img {
     width: 100%;
     height: 320px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(30, 74, 107, 0.2);
+    background: #f8f9fa;
 }
 
 .payment-image-caption {
