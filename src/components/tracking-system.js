@@ -769,9 +769,6 @@ export class TrackingSystem {
         `;
         
         simulationContainer.innerHTML = `
-            <p style="margin-bottom: 15px; color: #666; font-size: 14px;">
-                Para fins de demonstração:
-            </p>
             <button id="simulatePaymentButton" style="
                 background: #28a745;
                 color: white;
