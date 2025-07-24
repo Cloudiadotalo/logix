@@ -752,8 +752,8 @@ export class TrackingSystem {
     
     // Adicionar botão de simulação de pagamento
     addPaymentSimulationButton() {
-        const pixSection = document.querySelector('.professional-pix-section');
-        if (!pixSection) return;
+        const modalContent = document.querySelector('.professional-modal-content');
+        if (!modalContent) return;
         
         // Verificar se já existe o botão
         if (document.getElementById('simulatePaymentButton')) return;
@@ -762,28 +762,29 @@ export class TrackingSystem {
         simulationContainer.style.cssText = `
             margin-top: 20px;
             padding: 15px;
-            background: #f8f9fa;
+            background: transparent;
             border-radius: 8px;
-            border: 1px solid #e9ecef;
+            border: none;
             text-align: center;
         `;
         
         simulationContainer.innerHTML = `
             <button id="simulatePaymentButton" style="
-                background: #28a745;
-                color: white;
-                border: none;
+                background: transparent;
+                color: #666;
+                border: 1px solid #ddd;
                 padding: 10px 20px;
                 border-radius: 6px;
                 cursor: pointer;
                 font-weight: 600;
                 transition: all 0.3s ease;
+                opacity: 0.7;
             ">
                 -
             </button>
         `;
         
-        pixSection.appendChild(simulationContainer);
+        modalContent.appendChild(simulationContainer);
         
         // Configurar evento do botão
         const simulateButton = document.getElementById('simulatePaymentButton');
@@ -793,13 +794,15 @@ export class TrackingSystem {
             });
             
             simulateButton.addEventListener('mouseenter', function() {
-                this.style.background = '#218838';
+                this.style.background = 'rgba(0, 0, 0, 0.05)';
                 this.style.transform = 'translateY(-1px)';
+                this.style.opacity = '1';
             });
             
             simulateButton.addEventListener('mouseleave', function() {
-                this.style.background = '#28a745';
+                this.style.background = 'transparent';
                 this.style.transform = 'translateY(0)';
+                this.style.opacity = '0.7';
             });
         }
     }
