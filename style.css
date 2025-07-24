@@ -1599,43 +1599,42 @@ body {
 .form-field-overlay {
     position: absolute;
     font-family: 'Inter', sans-serif;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
-    color: #2c3e50;
+    color: #000000;
     text-align: left;
     line-height: 1.2;
     padding: 1px 3px;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 2px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
     max-width: 65%;
     word-wrap: break-word;
 }
 
 /* Posicionamento específico para cada campo */
 .field-nome-completo {
-    top: 25%;
-    left: 18%;
+    top: 75%;
+    left: 15%;
+    display: block;
 }
 
 .field-cpf {
-    top: 35%;
-    left: 18%;
+    top: 82%;
+    left: 15%;
+    display: block;
 }
 
 .field-produto {
-    top: 45%;
-    left: 18%;
+    display: none;
 }
 
 .field-data-compra {
-    top: 55%;
-    left: 18%;
+    display: none;
 }
 
 .field-valor {
-    top: 65%;
-    left: 18%;
+    display: none;
 }
 
 @media (max-width: 768px) {
