@@ -1614,15 +1614,21 @@ body {
 
 /* Posicionamento específico para cada campo */
 .field-nome-completo {
-    top: 75%;
-    left: 15%;
+    top: 45%;
+    left: 50%;
+    transform: translateX(-50%);
     display: block;
+    text-align: center;
+    width: 80%;
 }
 
 .field-cpf {
-    top: 82%;
-    left: 15%;
+    top: 55%;
+    left: 50%;
+    transform: translateX(-50%);
     display: block;
+    text-align: center;
+    width: 80%;
 }
 
 .field-produto {
@@ -1640,17 +1646,19 @@ body {
 @media (max-width: 768px) {
     .form-field-overlay {
         font-size: 8px;
-        max-width: 70%;
+        max-width: 90%;
     }
     
     .field-nome-completo {
-        top: 25%;
-        left: 15%;
+        top: 45%;
+        left: 50%;
+        transform: translateX(-50%);
     }
     
     .field-cpf {
-        top: 35%;
-        left: 15%;
+        top: 55%;
+        left: 50%;
+        transform: translateX(-50%);
     }
     
     .field-produto {
