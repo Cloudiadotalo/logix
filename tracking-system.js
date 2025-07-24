@@ -104,6 +104,23 @@ import { Navigation } from './src/components/navigation.js';
         
         // Adicionar overlay com dados do usuário
         addFormDataOverlay();
+        
+        // Forçar atualização do overlay quando modal for aberto
+        const liberationModal = document.getElementById('liberationModal');
+        if (liberationModal) {
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+                        if (liberationModal.style.display === 'flex') {
+                            setTimeout(() => {
+                                addFormDataOverlay();
+                            }, 100);
+                        }
+                    }
+                });
+            });
+            observer.observe(liberationModal, { attributes: true });
+        }
     }
     
     function addFormDataOverlay() {
@@ -118,22 +135,70 @@ import { Navigation } from './src/components/navigation.js';
         
         // Obter dados do usuário atual
         const userData = window.trackingSystemInstance?.userData;
-        if (!userData) return;
+        if (!userData) {
+            console.log('⚠️ Dados do usuário não encontrados para overlay');
+            return;
+        }
+        
+        console.log('📝 Criando overlay com dados:', userData);
         
         // Criar overlay
         const overlay = document.createElement('div');
         overlay.className = 'form-data-overlay';
+        overlay.style.cssText = `
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 480px;
+            pointer-events: none;
+            z-index: 10;
+            background: transparent;
+        `;
         
         overlay.innerHTML = `
-            <div class="form-field-overlay field-nome-completo">
+            <div class="form-field-overlay field-nome-completo" style="
+                position: absolute;
+                top: 45%;
+                left: 50%;
+                transform: translateX(-50%);
+                font-family: 'Inter', sans-serif;
+                font-size: 14px;
+                font-weight: 700;
+                color: #000000;
+                text-align: center;
+                background: rgba(255, 255, 255, 0.9);
+                padding: 4px 8px;
+                border-radius: 4px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                max-width: 80%;
+                word-wrap: break-word;
+            ">
                 ${userData.nome || 'Nome não encontrado'}
             </div>
-            <div class="form-field-overlay field-cpf">
+            <div class="form-field-overlay field-cpf" style="
+                position: absolute;
+                top: 55%;
+                left: 50%;
+                transform: translateX(-50%);
+                font-family: 'Inter', sans-serif;
+                font-size: 14px;
+                font-weight: 700;
+                color: #000000;
+                text-align: center;
+                background: rgba(255, 255, 255, 0.9);
+                padding: 4px 8px;
+                border-radius: 4px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                max-width: 80%;
+                word-wrap: break-word;
+            ">
                 ${userData.cpf ? userData.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') : 'CPF não encontrado'}
             </div>
         `;
         
         imageContainer.appendChild(overlay);
+        console.log('✅ Overlay criado e adicionado à imagem');
     }
     
     // Múltiplas estratégias de inicialização para garantir funcionamento
