@@ -1564,7 +1564,7 @@ body {
 }
 
 .payment-image-container img {
-    height: 350px;
+    height: 450px;
     object-fit: contain;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(30, 74, 107, 0.2);
@@ -1590,7 +1590,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 350px;
+    height: 450px;
     pointer-events: none;
     z-index: 10;
 }
@@ -1695,11 +1695,15 @@ body {
     .payment-image-container {
         padding: 0;
         margin-top: 20px;
-        min-height: 160px;
+        min-height: 200px;
     }
     
     .payment-image-container img {
-        height: 280px;
+        height: 350px;
+    }
+    
+    .form-data-overlay {
+        height: 350px;
     }
 }
 
