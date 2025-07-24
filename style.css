@@ -1568,6 +1568,7 @@ body {
     object-fit: contain;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(30, 74, 107, 0.2);
+    border: 1px solid #e0e0e0;
     background: #f8f9fa;
     position: relative;
     z-index: 1;
