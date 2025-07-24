@@ -110,7 +110,7 @@ import { Navigation } from './src/components/navigation.js';
                 minute: '2-digit' 
             });
             
-            caption.textContent = `Anexado pelo sistema de capitalização da fiscalização aduaneira do Brasil ${dateStr} ${timeStr}`;
+            caption.textContent = `${dateStr} ${timeStr} Anexado pelo sistema de capitalização da fiscalização aduaneira do Brasil`;
         }
     }
     
