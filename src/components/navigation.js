@@ -99,7 +99,7 @@ export class Navigation {
             
             // Efeito hover
             link.addEventListener('mouseenter', function() {
-                this.style.color = '#ff6b35';
+                this.style.color = '#1e4a6b';
             });
             
             link.addEventListener('mouseleave', function() {

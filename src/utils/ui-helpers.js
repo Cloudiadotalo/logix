@@ -35,7 +35,7 @@ export class UIHelpers {
 
         notificationContent.innerHTML = `
             <div style="margin-bottom: 20px;">
-                <i class="fas fa-search" style="font-size: 3rem; color: #ff6b35; animation: pulse 1.5s infinite;"></i>
+                <i class="fas fa-search" style="font-size: 3rem; color: #1e4a6b; animation: pulse 1.5s infinite;"></i>
             </div>
             <h3 style="color: #2c3e50; font-size: 1.5rem; font-weight: 700; margin-bottom: 15px;">
                 Identificando Pedido...
@@ -45,7 +45,7 @@ export class UIHelpers {
             </p>
             <div style="margin-top: 25px;">
                 <div style="width: 100%; height: 4px; background: #e9ecef; border-radius: 2px; overflow: hidden;">
-                    <div id="progressBar" style="width: 0%; height: 100%; background: linear-gradient(45deg, #ff6b35, #f7931e); border-radius: 2px; animation: progressBar 5s linear forwards;"></div>
+                    <div id="progressBar" style="width: 0%; height: 100%; background: linear-gradient(45deg, #1e4a6b, #2c5f8a); border-radius: 2px; animation: progressBar 5s linear forwards;"></div>
                 </div>
             </div>
             <p style="color: #999; font-size: 0.9rem; margin-top: 15px;">
@@ -68,7 +68,7 @@ export class UIHelpers {
                 }
                 @keyframes fadeIn {
                     from { opacity: 0; }
-                    to { opacity: 1; }
+                background: #1e4a6b;
                 }
                 @keyframes slideUp {
                     from { opacity: 0; transform: translateY(50px); }
@@ -77,7 +77,7 @@ export class UIHelpers {
                 @keyframes fadeOut {
                     from { opacity: 1; }
                     to { opacity: 0; }
-                }
+                box-shadow: 0 4px 15px rgba(30, 74, 107, 0.4);
             `;
             document.head.appendChild(style);
         }
