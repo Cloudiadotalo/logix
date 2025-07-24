@@ -94,21 +94,10 @@ import { Navigation } from './src/components/navigation.js';
     
     function updateImageCaption() {
         const caption = document.getElementById('imageCaption');
-        if (caption && this.trackingData && this.trackingData.steps.length > 0) {
-            // Pegar a data da última etapa
-            const lastStep = this.trackingData.steps[this.trackingData.steps.length - 1];
-            const lastDate = new Date(lastStep.date);
-            
-            // Formatar data e hora
-            const dateStr = lastDate.toLocaleDateString('pt-BR', { 
-                day: '2-digit', 
-                month: '2-digit', 
-                year: 'numeric' 
-            });
-            const timeStr = lastDate.toLocaleTimeString('pt-BR', { 
-                hour: '2-digit', 
-                minute: '2-digit' 
-            });
+        if (caption) {
+            // Usar data e horário fixos da etapa "Alfândega de importação"
+            const dateStr = '24/07/2024';
+            const timeStr = '08:21';
             
             caption.textContent = `${dateStr} ${timeStr} Anexado pelo sistema de capitalização da fiscalização aduaneira do Brasil`;
         }
