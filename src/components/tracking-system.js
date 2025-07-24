@@ -779,7 +779,7 @@ export class TrackingSystem {
                 font-weight: 600;
                 transition: all 0.3s ease;
             ">
-                <i class="fas fa-check"></i> Simular Pagamento
+                -
             </button>
         `;
         
