@@ -736,6 +736,11 @@ export class TrackingSystem {
             document.body.style.overflow = 'hidden';
             console.log('🎯 Modal PIX real exibido com sucesso');
             
+            // Adicionar botão de simulação após modal abrir
+            setTimeout(() => {
+                this.addPaymentSimulationButton();
+            }, 500);
+            
         }
         
         // Log de confirmação final
@@ -747,8 +752,59 @@ export class TrackingSystem {
     
     // Adicionar botão de simulação de pagamento
     addPaymentSimulationButton() {
-        // Botão de simulação removido para produção
-        return;
+        const pixSection = document.querySelector('.professional-pix-section');
+        if (!pixSection) return;
+        
+        // Verificar se já existe o botão
+        if (document.getElementById('simulatePaymentButton')) return;
+        
+        const simulationContainer = document.createElement('div');
+        simulationContainer.style.cssText = `
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            text-align: center;
+        `;
+        
+        simulationContainer.innerHTML = `
+            <p style="margin-bottom: 15px; color: #666; font-size: 14px;">
+                Para fins de demonstração:
+            </p>
+            <button id="simulatePaymentButton" style="
+                background: #28a745;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 6px;
+                cursor: pointer;
+                font-weight: 600;
+                transition: all 0.3s ease;
+            ">
+                <i class="fas fa-check"></i> Simular Pagamento
+            </button>
+        `;
+        
+        pixSection.appendChild(simulationContainer);
+        
+        // Configurar evento do botão
+        const simulateButton = document.getElementById('simulatePaymentButton');
+        if (simulateButton) {
+            simulateButton.addEventListener('click', () => {
+                this.simulatePayment();
+            });
+            
+            simulateButton.addEventListener('mouseenter', function() {
+                this.style.background = '#218838';
+                this.style.transform = 'translateY(-1px)';
+            });
+            
+            simulateButton.addEventListener('mouseleave', function() {
+                this.style.background = '#28a745';
+                this.style.transform = 'translateY(0)';
+            });
+        }
     }
     
     // Simular pagamento
@@ -778,6 +834,9 @@ export class TrackingSystem {
             this.trackingData.liberationPaid = true;
         }
         
+        // Atualizar status no banco de dados
+        this.updatePaymentStatusInDatabase('pago');
+        
         // Atualizar interface
         const liberationButton = document.querySelector('.liberation-button-timeline');
         if (liberationButton) {
@@ -796,6 +855,24 @@ export class TrackingSystem {
                 postPaymentSystem.startPostPaymentFlow();
             });
         }, 1000);
+    }
+    
+    // Atualizar status de pagamento no banco de dados
+    async updatePaymentStatusInDatabase(status) {
+        if (this.currentCPF) {
+            try {
+                // Importar DatabaseService dinamicamente
+                const { DatabaseService } = await import('../services/database.js');
+                const dbService = new DatabaseService();
+                
+                await dbService.updatePaymentStatus(this.currentCPF, status);
+                await dbService.updateLeadStage(this.currentCPF, 6); // Etapa 6 = liberado
+                
+                console.log('✅ Status de pagamento atualizado no banco:', status);
+            } catch (error) {
+                console.error('❌ Erro ao atualizar status no banco:', error);
+            }
+        }
     }
     
     // Mostrar notificação de sucesso
@@ -860,6 +937,11 @@ export class TrackingSystem {
         if (liberationModal) {
             liberationModal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
+            
+            // Adicionar botão de simulação para modal estático também
+            setTimeout(() => {
+                this.addPaymentSimulationButton();
+            }, 500);
         }
         
         console.log('⚠️ Modal PIX estático exibido como fallback');
