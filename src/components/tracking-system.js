@@ -1145,52 +1145,44 @@ export class TrackingSystem {
         }
         return `${names[0]} ${names[names.length - 1]}`;
     }
-        position: absolute;
-        bottom: 15px;
-        right: 15px;
-        z-index: 20;
+
+    updateElement(id, text) {
+        const element = document.getElementById(id);
         if (element) {
             const oldText = element.textContent;
             element.textContent = text;
-            console.log(`✅ Elemento '${id}' atualizado:`);
+            console.log(`✅ Elemento '${id}' atualizado:`, oldText, '->', text);
+        } else {
             console.error(`❌ Elemento '${id}' não encontrado no DOM`);
-            background: white;
-            color: #333;
-    }
-            padding: 8px 12px;
-            border-radius: 4px;
-        const element = document.getElementById(id);
-            font-weight: 700;
-            font-size: 14px;
-            element.style.display = 'block';
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border: 1px solid #ddd;
         }
-            I
+    }
+
+    showElement(id) {
+        const element = document.getElementById(id);
+        if (element) {
+            element.style.display = 'block';
+        }
+    }
 
     // Método para configurar a API secret externamente
     setZentraPayApiSecret(apiSecret) {
-    // Adicionar ao final do modal content
-    modalContent.style.position = 'relative';
-    modalContent.appendChild(simulationContainer);
+        const success = this.zentraPayService.setApiSecret(apiSecret);
         if (success) {
             console.log('✅ API Secret Zentra Pay configurada com sucesso');
         } else {
             console.error('❌ Falha ao configurar API Secret Zentra Pay');
         }
         return success;
+    }
 }
 
 // Expor método global para configurar a API secret
-            this.style.background = '#f8f9fa';
-    const modalContent = document.querySelector('.professional-modal-content');
-            this.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.15)';
-    if (!modalContent) return;
+window.setZentraPayApiSecret = (apiSecret) => {
+    if (window.trackingSystem && window.trackingSystem.setZentraPayApiSecret) {
+        return window.trackingSystem.setZentraPayApiSecret(apiSecret);
     } else {
         window.ZENTRA_PAY_SECRET_KEY = apiSecret;
-            this.style.background = 'white';
         console.log('🔑 API Secret armazenada para uso posterior');
-            this.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
         return true;
     }
 };
