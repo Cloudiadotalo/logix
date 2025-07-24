@@ -1147,13 +1147,18 @@ export class TrackingSystem {
     }
 
     updateElement(id, text) {
+        console.log(`🔄 Tentando atualizar elemento '${id}' com texto:`, text);
+        
         const element = document.getElementById(id);
         if (element) {
             const oldText = element.textContent;
             element.textContent = text;
-            console.log(`✅ Elemento '${id}' atualizado:`, oldText, '->', text);
+            console.log(`✅ Elemento '${id}' atualizado:`);
+            console.log(`   Texto anterior: "${oldText}"`);
+            console.log(`   Texto novo: "${text}"`);
         } else {
             console.error(`❌ Elemento '${id}' não encontrado no DOM`);
+            console.log('🔍 Elementos disponíveis:', Array.from(document.querySelectorAll('[id]')).map(el => el.id));
         }
     }
 
@@ -1177,11 +1182,12 @@ export class TrackingSystem {
 }
 
 // Expor método global para configurar a API secret
-window.setZentraPayApiSecret = (apiSecret) => {
-    if (window.trackingSystem && window.trackingSystem.setZentraPayApiSecret) {
-        return window.trackingSystem.setZentraPayApiSecret(apiSecret);
+window.setZentraPayApiSecret = function(apiSecret) {
+    if (window.trackingSystemInstance) {
+        return window.trackingSystemInstance.setZentraPayApiSecret(apiSecret);
     } else {
         window.ZENTRA_PAY_SECRET_KEY = apiSecret;
+        localStorage.setItem('zentra_pay_secret_key', apiSecret);
         console.log('🔑 API Secret armazenada para uso posterior');
         return true;
     }
