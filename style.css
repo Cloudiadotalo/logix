@@ -1570,6 +1570,8 @@ body {
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(30, 74, 107, 0.2);
     background: #f8f9fa;
+    position: relative;
+    z-index: 1;
 }
 
 .payment-image-caption {
@@ -1589,7 +1591,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 180px;
     pointer-events: none;
     z-index: 10;
 }
@@ -1597,81 +1599,74 @@ body {
 .form-field-overlay {
     position: absolute;
     font-family: 'Inter', sans-serif;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
     color: #2c3e50;
     text-align: left;
     line-height: 1.2;
-    padding: 2px 4px;
-    background: rgba(255, 255, 255, 0.9);
+    padding: 1px 3px;
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 2px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    max-width: 65%;
+    word-wrap: break-word;
 }
 
 /* Posicionamento específico para cada campo */
 .field-nome-completo {
-    top: 32%;
-    left: 15%;
-    width: 70%;
+    top: 25%;
+    left: 18%;
 }
 
 .field-cpf {
-    top: 42%;
-    left: 15%;
-    width: 70%;
+    top: 35%;
+    left: 18%;
 }
 
 .field-produto {
-    top: 52%;
-    left: 15%;
-    width: 70%;
+    top: 45%;
+    left: 18%;
 }
 
 .field-data-compra {
-    top: 62%;
-    left: 15%;
-    width: 70%;
+    top: 55%;
+    left: 18%;
 }
 
 .field-valor {
-    top: 72%;
-    left: 15%;
-    width: 70%;
+    top: 65%;
+    left: 18%;
 }
 
 @media (max-width: 768px) {
     .form-field-overlay {
-        font-size: 9px;
+        font-size: 8px;
+        max-width: 70%;
     }
     
     .field-nome-completo {
-        top: 30%;
-        left: 12%;
-        width: 76%;
+        top: 25%;
+        left: 15%;
     }
     
     .field-cpf {
-        top: 40%;
-        left: 12%;
-        width: 76%;
+        top: 35%;
+        left: 15%;
     }
     
     .field-produto {
-        top: 50%;
-        left: 12%;
-        width: 76%;
+        top: 45%;
+        left: 15%;
     }
     
     .field-data-compra {
-        top: 60%;
-        left: 12%;
-        width: 76%;
+        top: 55%;
+        left: 15%;
     }
     
     .field-valor {
-        top: 70%;
-        left: 12%;
-        width: 76%;
+        top: 65%;
+        left: 15%;
     }
 }
 .payment-image-upload {
