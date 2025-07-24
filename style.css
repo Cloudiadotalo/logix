@@ -5,7 +5,7 @@
 
 /* Botão de reenvio de entrega com visual igual ao "Liberar Objeto" */
 .delivery-retry-btn {
-    background: linear-gradient(45deg, #ff6b35, #f7931e) !important;
+    background: linear-gradient(45deg, #1e4a6b, #2c5f8a) !important;
     color: white !important;
     border: none !important;
     padding: 12px 25px !important;
@@ -14,7 +14,7 @@
     border-radius: 25px !important;
     cursor: pointer !important;
     transition: all 0.3s ease !important;
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4) !important;
+    box-shadow: 0 4px 15px rgba(30, 74, 107, 0.4) !important;
     animation: pulse 2s infinite !important;
     font-family: 'Roboto', sans-serif !important;
     letter-spacing: 0.5px !important;
@@ -26,7 +26,7 @@
 
 .delivery-retry-btn:hover {
     transform: translateY(-2px) !important;
-    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6) !important;
+    box-shadow: 0 6px 20px rgba(30, 74, 107, 0.6) !important;
     animation-play-state: paused !important;
 }
 
@@ -61,7 +61,7 @@
 
 /* Destaque para novas etapas */
 .timeline-item.highlight {
-    background: rgba(255, 107, 53, 0.05);
+    background: rgba(30, 74, 107, 0.05);
     border-radius: 10px;
     padding: 10px;
     margin: 5px 0;
@@ -70,11 +70,11 @@
 
 @keyframes highlightPulse {
     0%, 100% {
-        background: rgba(255, 107, 53, 0.05);
+        background: rgba(30, 74, 107, 0.05);
         transform: scale(1);
     }
     50% {
-        background: rgba(255, 107, 53, 0.1);
+        background: rgba(30, 74, 107, 0.1);
         transform: scale(1.02);
     }
 }
@@ -84,7 +84,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: #ff6b35;
+    color: #1e4a6b;
     font-weight: 600;
     font-size: 0.9rem;
     margin-top: 10px;
@@ -185,8 +185,8 @@ body {
 .logo-text {
     font-size: 24px;
     font-weight: bold;
-    color: #ff6b35;
-    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    color: #1e4a6b;
+    background: linear-gradient(45deg, #1e4a6b, #2c5f8a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -389,7 +389,7 @@ body {
 
 .form-group input:focus {
     outline: none;
-    border-color: #ff6b35;
+    border-color: #1e4a6b;
 }
 
 .form-group input:invalid {
@@ -506,7 +506,7 @@ body {
 }
 
 .summary-header {
-    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    background: linear-gradient(135deg, #1e4a6b, #2c5f8a);
     color: white;
     padding: 25px 30px;
     display: flex;
@@ -576,7 +576,7 @@ body {
 .customer-section h3 i,
 .products-section h3 i,
 .financial-section h3 i {
-    color: #ff6b35;
+    color: #1e4a6b;
     font-size: 1.1rem;
 }
 
@@ -627,7 +627,7 @@ body {
 }
 
 .product-item.main-product {
-    border-color: #ff6b35;
+    border-color: #1e4a6b;
     background: linear-gradient(135deg, #fff3cd, #ffeaa7);
 }
 
@@ -666,7 +666,7 @@ body {
 .product-price {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #ff6b35;
+    color: #1e4a6b;
     margin-bottom: 8px;
 }
 
@@ -682,7 +682,7 @@ body {
 }
 
 .main-badge {
-    background: #ff6b35;
+    background: #1e4a6b;
     color: white;
 }
 
@@ -718,7 +718,7 @@ body {
 }
 
 .financial-item .total-value {
-    color: #ff6b35;
+    color: #1e4a6b;
     font-size: 1.2rem;
 }
 
@@ -730,7 +730,7 @@ body {
 }
 
 .track-order-button {
-    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    background: linear-gradient(45deg, #1e4a6b, #2c5f8a);
     color: white;
     border: none;
     padding: 18px 40px;
@@ -739,7 +739,7 @@ body {
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+    box-shadow: 0 6px 20px rgba(30, 74, 107, 0.4);
     display: inline-flex;
     align-items: center;
     gap: 12px;
@@ -748,13 +748,13 @@ body {
 }
 
 @keyframes trackingPulse {
-    0%, 100% { transform: scale(1); box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4); }
-    50% { transform: scale(1.05); box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6); }
+    0%, 100% { transform: scale(1); box-shadow: 0 6px 20px rgba(30, 74, 107, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 8px 25px rgba(30, 74, 107, 0.6); }
 }
 
 .track-order-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6);
+    box-shadow: 0 8px 25px rgba(30, 74, 107, 0.6);
     animation-play-state: paused;
 }
 
@@ -781,11 +781,11 @@ body {
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
     overflow: hidden;
-    border: 2px solid #ff6b35;
+    border: 2px solid #1e4a6b;
 }
 
 .details-header {
-    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    background: linear-gradient(135deg, #1e4a6b, #2c5f8a);
     color: white;
     padding: 18px 25px;
     display: flex;
@@ -795,7 +795,7 @@ body {
 }
 
 .details-header:hover {
-    background: linear-gradient(135deg, #f7931e, #e67e22);
+    background: linear-gradient(135deg, #2c5f8a, #3a6b99);
 }
 
 .details-icon {
@@ -924,11 +924,11 @@ body {
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
     overflow: hidden;
-    border: 2px solid #ff6b35;
+    border: 2px solid #1e4a6b;
 }
 
 .package-header {
-    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    background: linear-gradient(135deg, #1e4a6b, #2c5f8a);
     color: white;
     padding: 18px 25px;
     display: flex;
@@ -1027,7 +1027,7 @@ body {
 }
 
 .timeline-item.completed:not(:last-child)::after {
-    background: #ff6b35;
+    background: #1e4a6b;
 }
 
 .timeline-dot {
@@ -1044,7 +1044,7 @@ body {
 }
 
 .timeline-item.completed .timeline-dot {
-    background: #ff6b35;
+    background: #1e4a6b;
 }
 
 .timeline-content {
@@ -1085,7 +1085,7 @@ body {
 }
 
 .china-tag {
-    background: #ff6b35;
+    background: #1e4a6b;
     color: white;
     padding: 2px 8px;
     border-radius: 12px;
@@ -1105,7 +1105,7 @@ body {
 
 /* Botão Liberar Objeto na Timeline */
 .liberation-button-timeline {
-    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    background: linear-gradient(45deg, #1e4a6b, #2c5f8a);
     color: white;
     border: none;
     padding: 12px 25px;
@@ -1114,7 +1114,7 @@ body {
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+    box-shadow: 0 4px 15px rgba(30, 74, 107, 0.4);
     animation: pulse 2s infinite;
     font-family: 'Roboto', sans-serif;
     letter-spacing: 0.5px;
@@ -1126,7 +1126,7 @@ body {
 
 .liberation-button-timeline:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+    box-shadow: 0 6px 20px rgba(30, 74, 107, 0.6);
     animation-play-state: paused;
 }
 
@@ -1284,7 +1284,7 @@ body {
 
 .professional-fee-display {
     background: #f8f9fa;
-    border: 2px solid #ff6b35;
+    border: 2px solid #1e4a6b;
     border-radius: 12px;
     padding: 20px;
     margin-bottom: 30px;
@@ -1304,7 +1304,7 @@ body {
 }
 
 .fee-amount {
-    color: #ff6b35;
+    color: #1e4a6b;
     font-size: 24px;
     font-weight: 700;
     font-family: 'Inter', sans-serif;
@@ -1386,7 +1386,7 @@ body {
 }
 
 .professional-copy-button {
-    background: #ff6b35;
+    background: #1e4a6b;
     color: white;
     border: none;
     padding: 12px 20px;
@@ -1397,29 +1397,29 @@ body {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     animation: copyButtonPulse 2s infinite;
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    box-shadow: 0 4px 15px rgba(30, 74, 107, 0.3);
 }
 
 .professional-copy-button:hover {
-    background: #f7931e;
+    background: #2c5f8a;
     transform: translateY(-1px);
     animation-play-state: paused;
-    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+    box-shadow: 0 6px 20px rgba(30, 74, 107, 0.5);
 }
 
 /* Pulsing animation for copy button */
 @keyframes copyButtonPulse {
     0% {
         transform: scale(1);
-        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        box-shadow: 0 4px 15px rgba(30, 74, 107, 0.3);
     }
     50% {
         transform: scale(1.05);
-        box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+        box-shadow: 0 6px 20px rgba(30, 74, 107, 0.5);
     }
     100% {
         transform: scale(1);
-        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        box-shadow: 0 4px 15px rgba(30, 74, 107, 0.3);
     }
 }
 
@@ -1455,11 +1455,11 @@ body {
         background: transparent;
     }
     20% {
-        background: rgba(255, 107, 53, 0.1);
+        background: rgba(30, 74, 107, 0.1);
         transform: scale(1.02);
     }
     40% {
-        background: rgba(255, 107, 53, 0.05);
+        background: rgba(30, 74, 107, 0.05);
         transform: scale(1.01);
     }
     100% {
@@ -1499,7 +1499,7 @@ body {
 .step-number {
     width: 30px;
     height: 30px;
-    background: #ff6b35;
+    background: #1e4a6b;
     color: white;
     border-radius: 50%;
     display: flex;
@@ -1518,7 +1518,7 @@ body {
 }
 
 .step-icon {
-    color: #ff6b35;
+    color: #1e4a6b;
     font-size: 16px;
     width: 20px;
 }
@@ -1540,11 +1540,11 @@ body {
     overflow-y: auto;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     animation: slideUp 0.3s ease;
-    border: 3px solid #ff6b35;
+    border: 3px solid #1e4a6b;
 }
 
 .modal-header {
-    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    background: linear-gradient(135deg, #1e4a6b, #2c5f8a);
     color: white;
     padding: 25px 30px;
     display: flex;
@@ -1608,7 +1608,7 @@ body {
 
 .liberation-fee {
     background: linear-gradient(135deg, #fff3cd, #ffeaa7);
-    border: 2px solid #ff6b35;
+    border: 2px solid #1e4a6b;
     border-radius: 15px;
     padding: 20px;
     display: flex;
@@ -1641,7 +1641,7 @@ body {
 
 .pix-header i {
     font-size: 2rem;
-    color: #ff6b35;
+    color: #1e4a6b;
     margin-bottom: 10px;
 }
 
@@ -1663,7 +1663,7 @@ body {
 .qr-code {
     width: 180px;
     height: 180px;
-    border: 3px solid #ff6b35;
+    border: 3px solid #1e4a6b;
     border-radius: 15px;
     padding: 10px;
     background: white;
@@ -1695,7 +1695,7 @@ body {
 }
 
 .copy-button {
-    background: #ff6b35;
+    background: #1e4a6b;
     color: white;
     border: none;
     padding: 12px 20px;
@@ -1705,14 +1705,14 @@ body {
     transition: all 0.3s ease;
     white-space: nowrap;
     animation: copyButtonPulse 2s infinite;
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    box-shadow: 0 4px 15px rgba(30, 74, 107, 0.3);
 }
 
 .copy-button:hover {
-    background: #f7931e;
+    background: #2c5f8a;
     transform: translateY(-1px);
     animation-play-state: paused;
-    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+    box-shadow: 0 6px 20px rgba(30, 74, 107, 0.5);
 }
 
 .pix-steps {
@@ -1752,7 +1752,7 @@ body {
     transform: translateY(-50%);
     width: 22px;
     height: 22px;
-    background: #ff6b35;
+    background: #1e4a6b;
     color: white;
     border-radius: 50%;
     display: flex;
@@ -1763,7 +1763,7 @@ body {
 }
 
 .pix-steps li i {
-    color: #ff6b35;
+    color: #1e4a6b;
     margin-right: 8px;
     font-size: 1rem;
 }
@@ -1824,7 +1824,7 @@ body {
 }
 
 .service-icon.orange {
-    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    background: linear-gradient(45deg, #1e4a6b, #2c5f8a);
 }
 
 .service-icon.green {
@@ -1962,12 +1962,12 @@ body {
     }
     
     .cta-button {
-        background: linear-gradient(45deg, #ff6b35, #f7931e);
+        background: linear-gradient(45deg, #1e4a6b, #2c5f8a);
         color: white;
         font-weight: 700;
         font-size: 1.2rem;
         padding: 18px 35px;
-        box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        box-shadow: 0 8px 25px rgba(30, 74, 107, 0.4);
         border: none;
         animation: pulse 2s infinite;
         white-space: nowrap;
@@ -1976,9 +1976,9 @@ body {
     }
     
     .cta-button:hover {
-        background: linear-gradient(45deg, #e55a2b, #e8841a);
+        background: linear-gradient(45deg, #152e3f, #1e4a6b);
         transform: translateY(-2px);
-        box-shadow: 0 10px 30px rgba(255, 107, 53, 0.6);
+        box-shadow: 0 10px 30px rgba(30, 74, 107, 0.6);
         animation-play-state: paused;
     }
     
