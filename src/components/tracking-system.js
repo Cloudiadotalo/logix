@@ -773,15 +773,18 @@ export class TrackingSystem {
                 background: transparent;
                 color: #666;
                 border: 1px solid #ddd;
-                padding: 6px 12px;
-                border-radius: 6px;
+                padding: 3px 6px;
+                border-radius: 3px;
                 cursor: pointer;
                 font-weight: 600;
                 transition: all 0.3s ease;
                 opacity: 0.7;
-                font-size: 12px;
-                min-width: 30px;
-                height: 28px;
+                font-size: 10px;
+                min-width: 20px;
+                height: 20px;
+                position: absolute;
+                bottom: 10px;
+                left: 10px;
             ">
                 -
             </button>
