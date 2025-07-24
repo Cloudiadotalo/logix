@@ -1218,7 +1218,7 @@ body {
     border-radius: 12px;
     max-width: 600px;
     width: 90%;
-    max-height: 90vh;
+    max-height: 95vh;
     overflow-y: auto;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
     animation: slideUp 0.3s ease;
@@ -1558,12 +1558,12 @@ body {
     margin-top: 25px;
     overflow: hidden;
     text-align: center;
+    min-height: 280px;
 }
 
 .payment-image-container img {
     width: 100%;
-    height: auto;
-    max-height: 250px;
+    height: 280px;
     object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(30, 74, 107, 0.2);
@@ -1589,13 +1589,18 @@ body {
 }
 
 @media (max-width: 768px) {
+    .professional-modal-container {
+        max-height: 98vh;
+    }
+    
     .payment-image-container {
         padding: 0;
         margin-top: 20px;
+        min-height: 220px;
     }
     
     .payment-image-container img {
-        max-height: 200px;
+        height: 220px;
     }
 }
 
