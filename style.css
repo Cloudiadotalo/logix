@@ -2320,3 +2320,18 @@ body {
 html {
     scroll-behavior: smooth;
 }
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(30, 74, 107, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 25px rgba(30, 74, 107, 0.7);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(30, 74, 107, 0.4);
+    }
+}
