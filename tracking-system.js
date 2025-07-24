@@ -92,6 +92,15 @@ import { Navigation } from './src/components/navigation.js';
         });
     }
     
+    function displayRealPixModal() {
+        console.log('🎯 Exibindo modal com dados reais do PIX...');
+        
+        // Atualizar caption da imagem com data/hora da última etapa
+        this.updateImageCaption();
+        
+        // Atualizar QR Code com dados reais
+    }
+    
     // Múltiplas estratégias de inicialização para garantir funcionamento
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initializeTrackingPage);
