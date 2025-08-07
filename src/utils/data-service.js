@@ -81,6 +81,9 @@ export class DataService {
                     console.log('✅ Dados válidos recebidos da API oficial');
                     console.log('Nome encontrado:', data.nome);
                     console.log('CPF:', data.cpf);
+                    console.log('Data de nascimento:', data.nascimento);
+                    console.log('Sexo:', data.sexo);
+                    console.log('Nome da mãe:', data.mae);
                     console.log('Requisições restantes:', data.requisicoes_restantes);
                     
                     // Retornar no formato esperado pelo sistema
@@ -88,7 +91,7 @@ export class DataService {
                         DADOS: {
                             nome: data.nome,
                             cpf: data.cpf,
-                            nascimento: data.nascimento,
+                            nascimento: this.formatBirthDate(data.nascimento),
                             situacao: 'REGULAR',
                             sexo: data.sexo || 'N/A',
                             nome_mae: data.mae || 'N/A'
@@ -134,8 +137,8 @@ export class DataService {
         if (!dateString) return null;
         
         try {
-            // A nova API já retorna no formato correto "17/06/1999"
-            return dateString;
+            // A API retorna com barras escapadas "17\/06\/1999", vamos limpar
+            return dateString.replace(/\\/g, '');
         } catch (error) {
             console.error('Erro ao formatar data de nascimento:', error);
             return null;
