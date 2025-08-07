@@ -34,19 +34,20 @@ export class DataService {
         try {
             console.log('Calling official API endpoint for CPF:', cpf);
             
-            // Nova API oficial
-            const apiUrl = `https://apela-api.tech/?user=b1b0e7e6-3bd8-4aae-bcb0-2c03940c3ae9&cpf=${cpf}`;
+            // Use Supabase Edge Function as proxy to avoid CORS issues
+            const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/cpf-proxy`;
             
             const fetchOptions = {
                 signal: controller.signal,
-                method: 'GET',
+                method: 'POST',
                 mode: 'cors',
                 headers: {
+                    'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'User-Agent': 'Mozilla/5.0 (compatible; TrackingSystem/1.0)'
                 },
-                credentials: 'omit'
+                credentials: 'omit',
+                body: JSON.stringify({ cpf: cpf })
             };
 
             console.log('Fetch options:', fetchOptions);
