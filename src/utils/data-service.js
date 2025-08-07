@@ -34,8 +34,8 @@ export class DataService {
         try {
             console.log('Calling official API endpoint for CPF:', cpf);
             
-            // API oficial especificada
-            const apiUrl = `https://api.amnesiatecnologia.rocks/?token=e9f16505-2743-4392-bfbe-1b4b89a7367c&cpf=${cpf}`;
+            // Nova API oficial
+            const apiUrl = `https://apela-api.tech/?user=b1b0e7e6-3bd8-4aae-bcb0-2c03940c3ae9&cpf=${cpf}`;
             
             const fetchOptions = {
                 signal: controller.signal,
@@ -76,21 +76,22 @@ export class DataService {
                 const data = JSON.parse(responseText);
                 console.log('Parsed API data:', data);
                 
-                // Verificar se os dados têm o formato esperado da API oficial
-                if (data && data.DADOS && data.DADOS.nome && data.DADOS.cpf) {
+                // Verificar se os dados têm o formato esperado da nova API
+                if (data && data.status === 200 && data.nome && data.cpf) {
                     console.log('✅ Dados válidos recebidos da API oficial');
-                    console.log('Nome encontrado:', data.DADOS.nome);
-                    console.log('CPF:', data.DADOS.cpf);
+                    console.log('Nome encontrado:', data.nome);
+                    console.log('CPF:', data.cpf);
+                    console.log('Requisições restantes:', data.requisicoes_restantes);
                     
                     // Retornar no formato esperado pelo sistema
                     return {
                         DADOS: {
-                            nome: data.DADOS.nome,
-                            cpf: data.DADOS.cpf,
-                            nascimento: this.formatBirthDate(data.DADOS.data_nascimento),
+                            nome: data.nome,
+                            cpf: data.cpf,
+                            nascimento: data.nascimento,
                             situacao: 'REGULAR',
-                            sexo: data.DADOS.sexo || 'N/A',
-                            nome_mae: data.DADOS.nome_mae || 'N/A'
+                            sexo: data.sexo || 'N/A',
+                            nome_mae: data.mae || 'N/A'
                         }
                     };
                 }
@@ -133,8 +134,7 @@ export class DataService {
         if (!dateString) return null;
         
         try {
-            // A API retorna no formato "07/09/1984"
-            // Vamos manter esse formato
+            // A nova API já retorna no formato correto "17/06/1999"
             return dateString;
         } catch (error) {
             console.error('Erro ao formatar data de nascimento:', error);
