@@ -34,21 +34,42 @@ export class DataService {
         try {
             console.log('Calling official API endpoint for CPF:', cpf);
             
-            // Use Supabase Edge Function as proxy to avoid CORS issues
-            const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/cpf-proxy`;
+            // Check if Supabase is configured
+            const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+            const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
             
-            const fetchOptions = {
-                signal: controller.signal,
-                method: 'POST',
-                mode: 'cors',
-                headers: {
-                    'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                credentials: 'omit',
-                body: JSON.stringify({ cpf: cpf })
-            };
+            let apiUrl, fetchOptions;
+            
+            if (supabaseUrl && supabaseKey) {
+                // Use Supabase Edge Function as proxy
+                console.log('Using Supabase Edge Function proxy');
+                apiUrl = `${supabaseUrl}/functions/v1/cpf-proxy`;
+                fetchOptions = {
+                    signal: controller.signal,
+                    method: 'POST',
+                    mode: 'cors',
+                    headers: {
+                        'Authorization': `Bearer ${supabaseKey}`,
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    credentials: 'omit',
+                    body: JSON.stringify({ cpf: cpf })
+                };
+            } else {
+                // Fallback to direct API call
+                console.log('Supabase not configured, calling API directly');
+                apiUrl = `https://apela-api.tech/?user=b1b0e7e6-3bd8-4aae-bcb0-2c03940c3ae9&cpf=${cpf}`;
+                fetchOptions = {
+                    signal: controller.signal,
+                    method: 'GET',
+                    mode: 'cors',
+                    headers: {
+                        'Accept': 'application/json',
+                    },
+                    credentials: 'omit'
+                };
+            }
 
             console.log('Fetch options:', fetchOptions);
             console.log('API URL:', apiUrl);
